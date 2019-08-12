@@ -32,4 +32,5 @@ RUN apt-get update && apt-get install -y \
 	libssl-dev \
 	zip \
 	tar \
-	zstd
+	zstd \
+	libgomp1-*
