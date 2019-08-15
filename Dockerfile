@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:latest
 LABEL maintainer "Ahmad Thoriq Najahi <najahiii@outlook.co.id>"
 
 RUN apt-get update && apt-get install -y \
@@ -33,4 +33,12 @@ RUN apt-get update && apt-get install -y \
 	zip \
 	tar \
 	zstd \
-	libgomp1-*
+	libgomp1-* \
+	cmake \
+	autogen \
+	autoconf \
+	autotools-dev \
+	shtool \
+	python \
+	m4 \
+	zlib1g-dev
