@@ -5,7 +5,6 @@ RUN apt-get update && apt-get install -y \
 	gcc \
 	libc6-dev \
 	git \
-	gcc \
 	g++ \
 	gperf \
 	bison \
@@ -28,6 +27,7 @@ RUN apt-get update && apt-get install -y \
 	libstdc++6 \
 	subversion \
 	curl \
+	rsync \
 	bc \
 	libssl-dev \
 	zip \
@@ -36,9 +36,12 @@ RUN apt-get update && apt-get install -y \
 	libgomp1-* \
 	cmake \
 	autogen \
-	autoconf \
 	autotools-dev \
 	shtool \
 	python \
 	m4 \
 	zlib1g-dev
+	
+RUN apt-get upgrade -y
+ENV TZ=Asia/Jakarta
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
