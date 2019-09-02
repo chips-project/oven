@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:stable-slim
 LABEL maintainer "Ahmad Thoriq Najahi <najahiii@outlook.co.id>"
 
 # Tidy-up
