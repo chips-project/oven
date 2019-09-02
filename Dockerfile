@@ -1,47 +1,62 @@
 FROM debian:latest
 LABEL maintainer "Ahmad Thoriq Najahi <najahiii@outlook.co.id>"
 
-RUN apt-get update && apt-get install -y \
-	gcc \
-	libc6-dev \
-	git \
-	g++ \
-	gperf \
-	bison \
-	flex \
-	texinfo \
-	help2man \
-	make \
-	libncurses5-dev \
+# Tidy-up
+RUN apt-get update -qq && \
+    apt-get upgrade -y && \
+    apt-get install --no-install-recommends -y \
 	autoconf \
+	autogen \
 	automake \
+	autotools-dev \
+	bc \
+        binutils \
+        binutils-aarch64-linux-gnu \
+        binutils-arm-linux-gnueabi \
+	bison \
+	bzip2 \
+	ca-certificates \
+	cmake \
+	curl \
+	expect \
+	flex \
+	g++ \
+	gawk \
+	gcc \
+	git \
+        gnupg \
+	gperf \
+	help2man \
+	libc6-dev \
+        libelf-dev \
+	libgomp1-* \
+	libncurses5-dev \
+	libssl-dev \
+	libstdc++6 \
 	libtool \
 	libtool-bin \
-	gawk \
-	wget \
-	bzip2 \
-	xz-utils \
-	unzip \
+	m4 \
+	make \
+	openssl \
+	ovmf \
 	patch \
 	python3 \
-	libstdc++6 \
-	subversion \
-	curl \
-	rsync \
-	bc \
-	libssl-dev \
-	zip \
-	tar \
-	zstd \
-	libgomp1-* \
-	cmake \
-	autogen \
-	autotools-dev \
-	shtool \
 	python \
-	m4 \
-	zlib1g-dev
-	
+	rsync \
+	shtool \
+	subversion \
+	tar \
+	texinfo \
+	tzdata \
+	u-boot-tools \
+	unzip \
+	wget \
+	xz-utils \
+	zip \
+	zlib1g-dev \
+	zstd
+
+# Indonesian timezone (GMT+7)	
 RUN apt-get upgrade -y
 ENV TZ=Asia/Jakarta
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
