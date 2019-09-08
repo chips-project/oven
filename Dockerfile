@@ -30,6 +30,7 @@ RUN apt-get update -qq && \
 	libc6-dev \
         libelf-dev \
 	libgomp1-* \
+	liblz4-tool \
 	libncurses5-dev \
 	libssl-dev \
 	libstdc++6 \
