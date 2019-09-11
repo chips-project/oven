@@ -1,5 +1,9 @@
-FROM debian:stable-slim
+FROM ubuntu:latest
 LABEL maintainer "Ahmad Thoriq Najahi <najahiii@outlook.co.id>"
+
+# Indonesian timezone (GMT+7)	
+ENV TZ=Asia/Jakarta
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Tidy-up
 RUN apt-get update -qq && \
@@ -10,9 +14,9 @@ RUN apt-get update -qq && \
 	automake \
 	autotools-dev \
 	bc \
-        binutils \
-        binutils-aarch64-linux-gnu \
-        binutils-arm-linux-gnueabi \
+	binutils \
+	binutils-aarch64-linux-gnu \
+	binutils-arm-linux-gnueabi \
 	bison \
 	bzip2 \
 	ca-certificates \
@@ -24,11 +28,11 @@ RUN apt-get update -qq && \
 	gawk \
 	gcc \
 	git \
-        gnupg \
+	gnupg \
 	gperf \
 	help2man \
 	libc6-dev \
-        libelf-dev \
+	libelf-dev \
 	libgomp1-* \
 	liblz4-tool \
 	libncurses5-dev \
@@ -56,8 +60,3 @@ RUN apt-get update -qq && \
 	zip \
 	zlib1g-dev \
 	zstd
-
-# Indonesian timezone (GMT+7)	
-RUN apt-get upgrade -y
-ENV TZ=Asia/Jakarta
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
