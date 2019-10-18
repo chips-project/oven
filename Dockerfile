@@ -45,6 +45,7 @@ RUN apt-get update -qq && \
 	openssl \
 	ovmf \
 	patch \
+	pigz \
 	python3 \
 	python \
 	rsync \
