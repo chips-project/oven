@@ -68,7 +68,7 @@ RUN git config --global user.email "najahiii@outlook.co.id"
 RUN git config --global user.name "Ahmad Thoriq Najahi"
 
 # Clang
-RUN git clone https://github.com/ChipsKernelBot/clang.git /root/clang
+RUN git clone https://github.com/najahiiii/clang.git -b 10.0 --depth=1 /root/clang
 
 # GCC
 RUN git clone https://github.com/najahiiii/priv-toolchains.git -b elf/gcc-10.0.0/arm --depth=1 /root/toolchain/ARM
