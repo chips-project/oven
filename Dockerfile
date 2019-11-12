@@ -42,6 +42,7 @@ RUN apt-get update -qq && \
 	libtool-bin \
 	m4 \
 	make \
+	nano \
 	openjdk-8-jdk \
 	openssl \
 	ovmf \
