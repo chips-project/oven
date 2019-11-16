@@ -20,6 +20,7 @@ RUN apt-get update -qq && \
 	bison \
 	bzip2 \
 	ca-certificates \
+	coreutils \
 	cmake \
 	curl \
 	expect \
@@ -31,6 +32,7 @@ RUN apt-get update -qq && \
 	gnupg \
 	gperf \
 	help2man \
+	lftp \
 	libc6-dev \
 	libelf-dev \
 	libgomp1-* \
@@ -44,6 +46,7 @@ RUN apt-get update -qq && \
 	make \
 	nano \
 	openjdk-8-jdk \
+	openssh-client \
 	openssl \
 	ovmf \
 	patch \
