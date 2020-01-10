@@ -74,6 +74,13 @@ RUN git config --global user.name "Ahmad Thoriq Najahi"
 # Clang
 RUN git clone https://github.com/NusantaraDevs/clang.git -b dev/10.0 --depth=1 /root/clang
 
+# AOSP Clang
+RUN git clone https://github.com/NusantaraDevs/clang.git -b ndk-clang-10 --depth=1 /root/aosp-clang
+
 # GCC
 RUN git clone https://github.com/najahiiii/priv-toolchains.git -b elf/gcc-10.0.0/arm --depth=1 /root/toolchain/ARM
 RUN git clone https://github.com/najahiiii/priv-toolchains.git -b elf/gcc-10.0.0/arm64 --depth=1 /root/toolchain/ARM64
+
+# GCC-4.9
+RUN git clone https://github.com/KudProject/arm-linux-androideabi-4.9 --depth=1 /root/gcc-4.9/arm
+RUN git clone https://github.com/KudProject/aarch64-linux-android-4.9 --depth=1 /root/gcc-4.9/arm64
