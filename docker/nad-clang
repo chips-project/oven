@@ -1,0 +1,48 @@
+FROM ubuntu:groovy
+LABEL maintainer "Ahmad Thoriq Najahi <najahi@chips-projects.xyz>"
+
+# My timezone (GMT+7)	
+ENV TZ=Asia/Jakarta
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+# Packages
+RUN apt-get update -qqy && \
+    apt-get upgrade -qqy && \
+    apt-get install --no-install-recommends -y \
+        bash \
+        bc \
+        binutils \
+        coreutils \
+        curl \
+        default-jre-headless \
+        diffutils \
+        gawk \
+        git \
+        gnupg \
+        lftp \
+        libtool \
+        m4 \
+        make \
+        ssh-client \
+        openssh-client \
+        openssl \
+        rsync \
+        pigz \
+        software-properties-common \
+        wget \
+        zip && \
+    apt-get autoremove -qqy && \
+    apt-get autoclean -qqy
+
+# Git
+RUN git config --global user.email "najahi@chips-projects.xyz"
+RUN git config --global user.name "Ahmad Thoriq Najahi"
+
+# Grab NusantaraDevs Clang 12.0
+RUN git clone https://github.com/NusantaraDevs/clang.git -b dev/12.0 --depth=1 --single-branch /root/clang
+RUN rm -rf /root/clang/.git
+
+# Install NusantaraDevs Clang 12.0
+ENV PATH="/root/clang/bin:${PATH}"
+
+CMD ["/bin/bash"]
