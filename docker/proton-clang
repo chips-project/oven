@@ -1,12 +1,20 @@
 FROM ubuntu:groovy
 LABEL maintainer "Ahmad Thoriq Najahi <najahi@chips-projects.xyz>"
 
+# Initial ENV
+ARG LC_ALL=C.UTF-8
+ARG DEBIAN_FRONTEND=noninteractive
+
 # My timezone (GMT+7)	
 ENV TZ=Asia/Jakarta
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Packages
 RUN apt-get update -qqy && \
+    apt-get install --no-install-recommends -y \
+        apt-utils \
+        apt-transport-https \
+        libxml2-dev && \
     apt-get upgrade -qqy && \
     apt-get install --no-install-recommends -y \
         bash \
@@ -33,6 +41,9 @@ RUN apt-get update -qqy && \
         zip && \
     apt-get autoremove -qqy && \
     apt-get autoclean -qqy
+
+# Clean apt-utils cache
+RUN rm -rf /var/lib/apt/lists/*
 
 # Git
 RUN git config --global user.email "najahi@chips-projects.xyz"
