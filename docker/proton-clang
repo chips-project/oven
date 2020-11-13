@@ -36,6 +36,7 @@ RUN apt-get update -qqy && \
         openssl \
         rsync \
         pigz \
+        python2 \
         software-properties-common \
         wget \
         zip && \
